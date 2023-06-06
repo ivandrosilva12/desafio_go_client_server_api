@@ -1,0 +1,18 @@
+version: '3'
+services:
+  sqlite3:
+    container_name: sqlite3
+    image: keinos/sqlite3:latest
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db/:/root/db/
+    environment:
+      SQLITE3_DATABASE: 'cotacao'
+      SQLITE3_PASSWORD: 'root'
+      SQLITE3_ROOT_PASSWORD: 'root'
+    ports:
+      - '9000:9000'
+    expose:
+      - '9000'
+    restart: always
